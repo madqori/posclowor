@@ -10,13 +10,17 @@ class UkuranBarangController extends BaseController {
 
 	public function __construct(){
 		$this->ukuranbarang = new barang\UkuranBarang();
+		$this->gender = new barang\Gender();
 	}
 	//fungsi ini adalah fungsi rootnya
 	protected function index()
 	{
 		//$warnaku = DB::table('pc_warna_barang')->get();
-		$data = $this->ukuranbarang->getDataContent();
-            return View::make('ukuranbarang')->with('data', $data);
+		$data = array(
+			'ukuran' => $this->ukuranbarang->getDataContent(),
+			'gender' => $this->gender->getDataContent(),
+			);
+		return View::make('ukuranbarang')->with('data', $data);
 
     }
 

@@ -15,15 +15,15 @@ class WarnaBarangController extends BaseController {
 	protected function index()
 	{
 		//$warnaku = DB::table('pc_warna_barang')->get();
-		$data = $this->warnabarang->getDataContent();
-            return View::make('warnabarang')->with('data', $data);
+		$data= $this->warnabarang->getDataContent();
+
+		return View::make('warnabarang')->with('data', $data);
 
     }
 
 	public function input(){
 		$input = Input::all();
 		$this->warnabarang->simpan($input);
-		// $this->warnabarang->simpan($input);
 		return Redirect::to('warnabarang');
 	}
 

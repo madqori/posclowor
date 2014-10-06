@@ -13,7 +13,7 @@ class BarangController extends BaseController {
 		$this->warnaBarang = new barang\WarnaBarang();
 		$this->ukuranBarang = new barang\UkuranBarang();
 		$this->supplier = new barang\Supplier();
-		$this->barang2 = new barang\Barang();
+		$this->barang = new barang\Barang();
 		// $this->barangJajal = new BarangJajal;
 	}
 	//fungsi ini adalah fungsi rootnya
@@ -25,7 +25,7 @@ class BarangController extends BaseController {
 			'jenis' => $this->jenisBarang->getDataContent(),
 			'ukuran' => $this->ukuranBarang->getDataContent(),
 			'supplier' => $this->supplier->getDataContent(),
-			'barang2' => $this->barang2->getDataContent(),
+			'barang2' => $this->barang->getDataContent(),
 
 			); 
 		return View::make('barang')->with('data',$data);

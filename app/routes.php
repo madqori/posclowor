@@ -45,15 +45,16 @@ Route::get('supplier','SupplierController@index');
 
 //input ke database
 Route::post('warnabarang/input', 'WarnaBarangController@input'); //sementara pake IndexController nanti pake UkuranBarangController
-Route::post('ukuranbarang/input', 'IndexController@input');
+Route::post('ukuranbarang/input', 'UkuranBarangController@input');
 Route::post('jenisbarang/input','JenisBarangController@input');
 Route::post('supplier/input','IndexController@input');
+Route::post('barang/input','BarangController@input');
 
 
 //hapus dari database
 Route::get('warnabarang/hapus/{id}', 'WarnaBarangController@hapus');
 Route::get('supplier/hapus/{id}','IndexController@hapus');
-Route::get('jenisbarang/hapus/{id}', 'IndexController@hapus');
+Route::get('jenisbarang/hapus/{id}', 'JenisBarangController@hapus');
 // Route::post('mataajar/doupdate', 'IndexController@doEdit');
 
 

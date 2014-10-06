@@ -32,9 +32,14 @@
 							<div class="form-group">
 							<form method="post" role="role" action="ukuranbarang/input">
 								<select name="id_gender" class="form-control">
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
+									<?php 
+										foreach($data['gender'] as $dt)
+									{ ?>
+										<option value="<?php echo $dt->id_gender; ?>">
+										<?php echo $dt->gender; ?>
+										</option>
+									
+									<?php }; ?>
 								</select>
 							</div>
 						</div>
@@ -86,14 +91,22 @@
 
 									<?php
 										$i=1;
-										foreach ($data as $dt) {
+										foreach ($data['ukuran'] as $dt) {
 											?>
 								<tbody>
 									<tr>
 										<td><?php echo $i; ?></td>
-										<td><?php echo $dt->id_gender; ?></td>
 										<td><?php echo $dt->kode_ukuran; ?></td>
 										<td><?php echo $dt->ukuran; ?></td>
+										<td><?php 
+											if ($dt->id_gender==1) {
+												echo "Pria";
+											} elseif ($dt->id_gender==2) {
+												echo "Wanita";
+											} else{
+												echo "Semua";
+											}
+										?></td>
 										<td>	
 												<button type="button" class="btn btn-warning" >Hapus</button>
 												
@@ -135,9 +148,9 @@
 													</div>
 												</div>
 											</div>
-									</td>
+										</td>
 				
-								</tr>
+									</tr>
 						
 								</tbody>
 								<?php $i++;

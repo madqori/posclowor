@@ -56,11 +56,10 @@
 													<label>Nama :</label>
 												</div>
 												<div class="col-lg-6">
-													<form role="form">
+													<form role="form" method="post" action="barang/input">
 														<div class ="form-group">
-															<input class="form-control">
+															<input name="nama_barang" class="form-control" placeholder="Nama Barang">
 														</div>
-													</form>
 												</div>	
 											</div>
 											<div class = "row">
@@ -68,20 +67,19 @@
 													<label>Jenis :</label>
 												</div>
 												<div class="col-lg-6">
-													<form role="form" method="post" action="barang/input">
 														<div class ="form-group">
-															<select class="form-control">
+															<select name="jenis_barang" class="form-control">
 
 															<?php 
 																foreach($data['jenis'] as $dt)
 															{ ?>
-																<option><?php echo $dt->jenis_barang; ?>
-																</option>		
+																<option value="<?php echo $dt->kode_jenis_barang; ?>">
+																<?php echo $dt->jenis_barang; ?>
+																</option>
 															
 															<?php }; ?>
 															</select>
 														</div>
-													</form>
 												</div>
 												<!--<div class="col-lg-3">
 													<button type="button" class="btn btn-primary">Tambah Jenis</button>
@@ -94,12 +92,12 @@
 												<div class="col-lg-6">
 													 
 														<div class ="form-group">
-															<select class="form-control">
+															<select name="warna_barang" class="form-control">
 																
 															<?php 
 																foreach($data['warna'] as $dt)
 															{ ?>
-																<option><?php echo $dt->warna_barang; ?>
+																<option value="<?php echo $dt->kode_warna_barang; ?>"><?php echo $dt->warna_barang; ?>
 																</option>		
 															
 															<?php }; ?>
@@ -117,18 +115,21 @@
 												</div>
 												<div class="col-lg-3">
 													 	<div class ="form-group">
-															<select class="form-control">
-																<option>S</option>
-																<option>M</option>
-																<option>L</option>
-																<option>XL</option>
+															<select name="ukuran_barang" class="form-control">
+															<?php 
+																foreach($data['ukuran'] as $dt)
+															{ ?>
+																<option value="<?php echo $dt->kode_ukuran; ?>"><?php echo $dt->ukuran; ?>
+																</option>
+															
+															<?php }; ?>
 															</select>
 														</div>
 													 </div>
 												<div class="col-lg-3">
 													 
 														<div class ="form-group">
-															<input class="form-control" placeholder="Jumlah. . .">
+															<input name="stok" class="form-control" placeholder="Jumlah. . .">
 														</div>
 													 
 												</div>
@@ -143,11 +144,14 @@
 												<div class="col-lg-6">
 												 
 														<div class ="form-group">
-															<select class="form-control">
-																<option>Dudung</option>
-																<option>Karto</option>
-																<option>Jambrud</option>
-																<option>Cela</option>
+															<select name="supplier" class="form-control">
+															<?php 
+																foreach($data['supplier'] as $dt)
+															{ ?>
+																<option value="<?php echo $dt->id_supplier; ?>"><?php echo $dt->nama_perusahaan; ?>
+																</option>
+															
+															<?php }; ?>
 															</select>
 														</div>
 												 
@@ -163,7 +167,7 @@
 												<div class="col-lg-6">
 												 
 														<div class ="form-group">
-															<input class="form-control">
+															<input name="harga_beli" class="form-control">
 														</div>
 												 
 												</div>
@@ -175,19 +179,7 @@
 												<div class="col-lg-6">
 												 
 														<div class ="form-group">
-															<input class="form-control">
-														</div>
-												 
-												</div>												
-											</div>
-											<div class = "row">
-												<div class="col-lg-3">
-													<label>Jumlah Stok :</label>
-												</div>
-												<div class="col-lg-6">
-												 
-														<div class ="form-group">
-															<input class="form-control">
+															<input name="harga_jual" class="form-control">
 														</div>
 												 
 												</div>												
@@ -200,7 +192,7 @@
 												<div class="col-lg-2">
 												 
 														<div class ="form-group">
-															<input class="form-control">
+															<input name="diskon" class="form-control">
 														</div>
 												 
 												</div>
@@ -215,7 +207,7 @@
 												<div class="col-lg-6">
 												 
 														<div class ="form-group">
-															<input class="form-control">
+															<input name="diskon_awal" class="form-control">
 														</div>
 												 
 												</div>	
@@ -227,7 +219,7 @@
 												<div class="col-lg-6">
 												 
 														<div class ="form-group">
-															<input class="form-control">
+															<input name="diskon_akhir" class="form-control">
 														</div>
 												 
 												</div>	
@@ -238,6 +230,7 @@
 											<button type="submit" name="submit"class="btn btn-default" data-dismiss="modal">Close</button>
 											<button type="submit" name="submit" class="btn btn-primary">Save changes</button>
 										</div>
+										</form>
 									</div>
 								</div>
 							</div>

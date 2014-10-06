@@ -141,7 +141,7 @@
 																<h4 class="modal-title" id="myModalLabel">Warning</h4>
 														</div>
 														<div class="modal-body">
-															Apakah anda akan menghapus dari DATABASE??
+															Apakah anda akan menghapus <?php echo $dt->jenis_barang; ?> dari database?
 														</div>
 														<div class="modal-footer">
 															<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
